@@ -78,6 +78,7 @@
         });
 	</script>
 
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -111,15 +112,19 @@
 					<th width="10px">R</th>
 					<th width="70px" class="hidden-xs">Flag</th>
 					<th class="hidden-xs">Name</th>
-					<th class="hidden-xs hidden-sm">MC</th><th class="hidden-xs hidden-sm">TC</th><th>SPE</th>
-					<th class="hidden-xs hidden-sm">HW</th><th class="hidden-xs hidden-sm">Bs</th>
-					<th class="hidden-xs hidden-sm">KS</th><th class="hidden-xs hidden-sm">Ac</th>
+					<th class="hidden-xs hidden-sm">MC</th>
+					<th class="hidden-xs hidden-sm">TC</th>
+					<th>SPE</th>
+					<th class="hidden-xs hidden-sm">HW</th>
+					<th class="hidden-xs hidden-sm">Bs</th>
+					<th class="hidden-xs hidden-sm">KS</th>
+					<th class="hidden-xs hidden-sm">Ac</th>
 					<th>DIL</th><th>Sum</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>1</td>
+					<td id="hej">1</td>
 					<td class="hidden-xs"><img src="img/CHN.png" width="25px">CHN</td>
 					<td class="hidden-xs"><img src="img/user1.png" height="20px"><img src="img/prof.png" height="15px"><a href="user1.html">User 1</a></td>
 					<td class="hidden-xs hidden-sm">3</td>
@@ -233,6 +238,19 @@
 					<button type="submit" class="subscribe-submit">Subscribe</button>
 				</form>
 			</section>
+
+	<script type="text/javascript">
+		//Setting row height according to difference between SUMs
+		
+		var t = document.getElementById("test");
+
+		for(var i=2; i < t.rows.length-1; i++) {
+			var sumi = t.rows[i].cells[11].innerHTML;
+			var sumiminus1 = t.rows[i-1].cells[11].innerHTML;
+			t.rows[i].style.height = 200*(Math.abs(sumi-sumiminus1)).toString()+"px";
+
+		}
+	</script>
       </footer>
   </body>
 </html>
