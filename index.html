@@ -78,7 +78,18 @@
         });
 	</script>
 
-
+	<script type="text/javascript">
+	function setAllSameHeight()
+	{
+		tablerows = document.getElementById("test").rows;
+		for(i=0;i<tablerows.length;i++){
+			tablerows[i].style.height = "50px";	
+		}
+		
+	}
+	
+	</script>
+	  
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -110,16 +121,17 @@
 			<thead>
 				<tr>
 					<th width="10px">R</th>
-					<th width="70px" class="hidden-xs">Flag</th>
-					<th class="hidden-xs">Name</th>
-					<th class="hidden-xs hidden-sm">MC</th>
-					<th class="hidden-xs hidden-sm">TC</th>
-					<th>SPE</th>
-					<th class="hidden-xs hidden-sm">HW</th>
-					<th class="hidden-xs hidden-sm">Bs</th>
-					<th class="hidden-xs hidden-sm">KS</th>
-					<th class="hidden-xs hidden-sm">Ac</th>
-					<th>DIL</th><th>Sum</th>
+					<th width="70px" class="hidden-xs" onclick= "setAllSameHeight()">Flag</th>
+					<th class="hidden-xs" onclick= "setAllSameHeight()">Name</th>
+					<th class="hidden-xs hidden-sm" onclick= "setAllSameHeight()">MC</th>
+					<th class="hidden-xs hidden-sm" onclick= "setAllSameHeight()">TC</th>
+					<th onclick= "setAllSameHeight()">SPE</th>
+					<th class="hidden-xs hidden-sm" onclick= "setAllSameHeight()">HW</th>
+					<th class="hidden-xs hidden-sm" onclick= "setAllSameHeight()">Bs</th>
+					<th class="hidden-xs hidden-sm" onclick= "setAllSameHeight()">KS</th>
+					<th class="hidden-xs hidden-sm" onclick= "setAllSameHeight()">Ac</th>
+					<th onclick= "setAllSameHeight()">DIL</th>
+					<th>Sum</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -244,10 +256,10 @@
 		
 		var t = document.getElementById("test");
 
-		for(var i=2; i < t.rows.length-1; i++) {
+		for(var i=2; i < t.rows.length; i++) {
 			var sumi = t.rows[i].cells[11].innerHTML;
 			var sumiminus1 = t.rows[i-1].cells[11].innerHTML;
-			t.rows[i].style.height = 200*(Math.abs(sumi-sumiminus1)).toString()+"px";
+			t.rows[i].style.height = 100*(Math.abs(sumi-sumiminus1)).toString()+"px";
 
 		}
 	</script>
